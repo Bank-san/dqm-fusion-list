@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>旅の扉ツール</title>
+    <link rel="stylesheet" href="travel-gate.css" />
+  </head>
+  <body>
+    <div class="header">
+      <a href="../index.html" class="back-button">トップページに戻る</a>
+      <h1>旅の扉ツール</h1>
+    </div>
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="モンスターを検索..."
+        autocomplete="off"
+      />
+      <div id="suggestions" class="suggestions"></div>
+    </div>
+    <div class="search-options">
+      <div class="search-option-group">
+        <button class="search-scope-button active" data-scope="child">
+          モンスター名
+        </button>
+        <button class="search-scope-button" data-scope="parents">階層</button>
+      </div>
+      <div class="search-option-group">
+        <button class="search-match-button active" data-match="partial">
+          部分一致
+        </button>
+        <button class="search-match-button" data-match="exact">完全一致</button>
+      </div>
+      <div class="search-option-group">
+        <button class="note-toggle-button" data-show="false">
+          備考欄を表示
+        </button>
+      </div>
+    </div>
+    <div class="tag-container">
+      <button class="tag-button" data-tag="たびだち">たびだち</button>
+      <button class="tag-button" data-tag="まちびと">まちびと</button>
+      <button class="tag-button" data-tag="まもり">まもり</button>
+      <button class="tag-button" data-tag="おもいで">おもいで</button>
+      <button class="tag-button" data-tag="とまどい">とまどい</button>
+      <button class="tag-button" data-tag="バザー(炎)">バザー(炎)</button>
+      <button class="tag-button" data-tag="やすらぎ">やすらぎ</button>
+      <button class="tag-button" data-tag="ゆうき">ゆうき</button>
+      <button class="tag-button" data-tag="井戸">井戸</button>
+      <button class="tag-button" data-tag="いかり">いかり</button>
+      <button class="tag-button" data-tag="ちから">ちから</button>
+      <button class="tag-button" data-tag="牧場右上">牧場右上</button>
+      <button class="tag-button" data-tag="よろこび">よろこび</button>
+      <button class="tag-button" data-tag="ちえ">ちえ</button>
+      <button class="tag-button" data-tag="格闘場(左)">格闘場(左)</button>
+      <button class="tag-button" data-tag="しあわせ">しあわせ</button>
+      <button class="tag-button" data-tag="さそい">さそい</button>
+      <button class="tag-button" data-tag="メダルおじさん">
+        メダルおじさん
+      </button>
+      <button class="tag-button" data-tag="まよい">まよい</button>
+      <button class="tag-button" data-tag="さばき">さばき</button>
+      <button class="tag-button" data-tag="図書館">図書館</button>
+      <button class="tag-button" data-tag="かがみ">かがみ</button>
+      <button class="tag-button" data-tag="やぼう">やぼう</button>
+      <button class="tag-button" data-tag="はかい">はかい</button>
+      <button class="tag-button" data-tag="あやつり">あやつり</button>
+      <button class="tag-button" data-tag="しはい">しはい</button>
+      <button class="tag-button" data-tag="ねだやし">ねだやし</button>
+      <button class="tag-button" data-tag="ねむり">ねむり</button>
+      <button class="tag-button" data-tag="バザー(召還)">バザー(召還)</button>
+      <button class="tag-button" data-tag="格闘場(右)">格闘場(右)</button>
+      <button class="tag-button" data-tag="ガンコじじい">ガンコじじい</button>
+    </div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>旅の扉</th>
+            <th>モンスター</th>
+            <th>階層</th>
+            <th class="note-column">備考</th>
+          </tr>
+        </thead>
+        <tbody id="fusionTable">
+          <tr>
+            <td colspan="4">Loading data...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="travel-gate.js"></script>
+  </body>
+</html>
