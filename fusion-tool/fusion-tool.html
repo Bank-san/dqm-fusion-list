@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="Ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>配合ツール</title>
+    <link rel="stylesheet" href="fusion-tool.css" />
+  </head>
+  <body>
+    <h1>配合ツール</h1>
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="モンスターを検索..."
+        autocomplete="off"
+      />
+      <div id="suggestions" class="suggestions"></div>
+    </div>
+    <div class="search-options">
+      <div class="search-option-group">
+        <button class="search-scope-button active" data-scope="child">
+          子モンスター
+        </button>
+        <button class="search-scope-button" data-scope="parents">
+          血統/相手
+        </button>
+      </div>
+      <div class="search-option-group">
+        <button class="search-match-button active" data-match="partial">
+          部分一致
+        </button>
+        <button class="search-match-button" data-match="exact">完全一致</button>
+      </div>
+      <div class="search-option-group">
+        <button class="note-toggle-button" data-show="false">
+          備考欄を表示
+        </button>
+      </div>
+    </div>
+    <div class="tag-container">
+      <button class="tag-button" data-tag="スライム系">スライム系</button>
+      <button class="tag-button" data-tag="ドラゴン系">ドラゴン系</button>
+      <button class="tag-button" data-tag="獣系">獣系</button>
+      <button class="tag-button" data-tag="鳥系">鳥系</button>
+      <button class="tag-button" data-tag="植物系">植物系</button>
+      <button class="tag-button" data-tag="虫系">虫系</button>
+      <button class="tag-button" data-tag="悪魔系">悪魔系</button>
+      <button class="tag-button" data-tag="ゾンビ系">ゾンビ系</button>
+      <button class="tag-button" data-tag="物質系">物質系</button>
+    </div>
+    <!-- テーブルをコンテナで囲む -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>子</th>
+            <th>血統</th>
+            <th>相手</th>
+            <th class="note-column">備考</th>
+          </tr>
+        </thead>
+        <tbody id="fusionTable">
+          <tr>
+            <td colspan="4">Loading data...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="fusion-tool.js"></script>
+  </body>
+</html>

@@ -1,0 +1,380 @@
+body {
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f7fa;
+  color: #2d3748;
+}
+
+h1 {
+  text-align: center;
+  color: #2d3748;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.search-container {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto 20px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  background-color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.suggestions {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.suggestion-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.suggestion-item:hover {
+  background-color: #ebf8ff;
+}
+
+.suggestion-item.selected {
+  background-color: #bee3f8;
+}
+
+.search-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.search-option-group {
+  display: flex;
+  gap: 12px;
+}
+
+.search-scope-button,
+.search-match-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e2e8f0;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.search-scope-button:hover,
+.search-match-button:hover {
+  background-color: #cbd5e0;
+}
+
+.search-scope-button.active,
+.search-match-button.active {
+  background-color: #4299e1;
+  color: white;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.tag-button {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: #edf2f7;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.tag-button:hover {
+  background-color: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+.tag-button.active {
+  background-color: #4299e1;
+  color: white;
+  box-shadow: 0 2px 4px rgba(66, 153, 225, 0.3);
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+th {
+  background-color: #4299e1;
+  color: white;
+  font-weight: 600;
+  padding: 12px 20px;
+  text-align: left;
+}
+
+td {
+  padding: 12px 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+tr:hover td {
+  background-color: #f7fafc;
+}
+
+/* スクロールバーのカスタマイズ */
+.suggestions::-webkit-scrollbar {
+  width: 8px;
+}
+
+.suggestions::-webkit-scrollbar-track {
+  background: #f7fafc;
+  border-radius: 4px;
+}
+
+.suggestions::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+
+.suggestions::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  td,
+  th {
+    padding: 8px 12px;
+  }
+
+  .tag-container {
+    padding: 0 10px;
+  }
+}
+
+.note-toggle-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e2e8f0;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.note-toggle-button:hover {
+  background-color: #cbd5e0;
+}
+
+.note-toggle-button.active {
+  background-color: #4299e1;
+  color: white;
+}
+
+.note-column {
+  display: none;
+}
+
+.note-column.visible {
+  display: table-cell;
+}
+
+/* 既存のスタイルに追加/修正 */
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .search-container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  #searchInput {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+  }
+
+  .search-options {
+    padding: 0 10px;
+  }
+
+  .search-option-group {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .search-scope-button,
+  .search-match-button,
+  .note-toggle-button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .tag-container {
+    padding: 0 5px;
+    gap: 6px;
+  }
+
+  .tag-button {
+    padding: 4px 12px;
+    font-size: 0.85rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+    margin: 10px 0;
+  }
+
+  th {
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 8px 10px;
+  }
+
+  /* スマートフォンでの横スクロール対応 */
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* テーブルの最小幅を設定 */
+  table {
+    min-width: 500px;
+  }
+
+  /* サジェストのモバイル対応 */
+  .suggestions {
+    max-height: 250px;
+  }
+
+  .suggestion-item {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+/* さらに小さい画面用 */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .search-options {
+    gap: 8px;
+  }
+
+  .search-option-group {
+    gap: 6px;
+  }
+
+  .search-scope-button,
+  .search-match-button,
+  .note-toggle-button {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+
+  .tag-button {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* テーブルのレスポンシブ対応のためにコンテナを追加 */
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 20px;
+  background: linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)),
+    linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 100% 0,
+    radial-gradient(
+      farthest-side at 0 50%,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0)
+    ),
+    radial-gradient(
+        farthest-side at 100% 50%,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0)
+      )
+      100% 0;
+  background-repeat: no-repeat;
+  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+  background-position: 0 0, 100% 0, 0 0, 100% 0;
+  background-attachment: local, local, scroll, scroll;
+}
